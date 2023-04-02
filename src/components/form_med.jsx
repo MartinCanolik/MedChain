@@ -8,6 +8,7 @@ import { validationSchema } from "../schema/schema";
 import { useMutation, gql } from "@apollo/client";
 
 const Form_med = () => {
+	// console.log(process.env.REACT_APP_API_KEY);
 	const CREATE_PRESCRIPTION = gql`
 		mutation CreatePrescription(
 			$patientName: String!
@@ -15,6 +16,8 @@ const Form_med = () => {
 			$issuedDate: String!
 			$expiryDate: String!
 			$medicineName: String!
+			$dosage: Int!
+			$frequency: Float!
 			$used: Boolean
 		) {
 			createPrescription(
@@ -24,6 +27,8 @@ const Form_med = () => {
 					issuedDate: $issuedDate
 					expiryDate: $expiryDate
 					medicineName: $medicineName
+					dosage: $dosage
+					frequency: $frequency
 					used: $used
 				}
 			) {
@@ -38,12 +43,14 @@ const Form_med = () => {
 		}
 	`;
 	const [stay, setStay] = useState([]);
+
 	const [createPrescription, { data, loading, error }] =
 		useMutation(CREATE_PRESCRIPTION);
 
 	useEffect(() => {
 		console.log(data);
-	}, [data]);
+		console.log(error);
+	}, [data, error]);
 
 	//alerts
 	const swappUpSuccess = (name) => {
@@ -65,57 +72,64 @@ const Form_med = () => {
 
 	const submitForm = async (values) => {
 		try {
-			// const response = await axios({
-			// 	method: "post",
-			// 	url: "https://api.sendinblue.com/v3/smtp/email",
-			// 	data: {
-			// 		sender: {
-			// 			name: `${values.firstName} ${values.lastName}`,
-			// 			email: "martin.canolik@gmail.com",
-			// 		},
-			// 		to: [
-			// 			{
-			// 				email: "martin.canolik@gmail.com",
-			// 				name: "Martin Canolik",
-			// 			},
-			// 		],
-			// 		subject: "Solicitud De Reserva !",
-			// 		htmlContent: `<html><head></head><body>
-			// 			<h2>Consulta: </h2>
-			// 			<p>${values.query}</p>
-			// 			<span><b>Adultos: </b> ${values.adults}</span><br>
-			// 			<span><b>Niños: </b> ${values.children}</span><br>
-			// 			<span><b>Email: </b> ${values.email}</span><br>
-			// 			<span><b>Telefono: </b> ${values.phone}</span><br>
-			// 			<span><b>Desde: </b> ${values.startDate} <b>Hasta: </b> ${values.endDate}</span><br>
-			// 			</body></html>`,
-			// 	},
-			// 	headers: {
-			// 		Accept: "application/json",
-			// 		"Content-Type": "application/json",
-			// 		"api-key": process.env.REACT_APP_API_KEY,
-			// 	},
-			// });
-			console.log(values);
+			const response = await axios({
+				method: "post",
+				url: "https://api.sendinblue.com/v3/smtp/email",
+				data: {
+					sender: {
+						name: `MedChain`,
+						email: "martin.canolik@gmail.com",
+					},
+					to: [
+						{
+							email: "martin.canolik@gmail.com",
+							name: "Martin Canolik",
+						},
+					],
+					subject: "RECETA MEDICA",
+					htmlContent: `<html><head></head><body>
+						<h2>Receta MedChain: </h2>
+					
+						<img src="https://res.cloudinary.com/drhj3sc2o/image/upload/v1680457297/QR_ncsyn0.jpg" alt="" /><br><br/>
+						<span><b>Nombre del paciente: </b> ${values.patientName}</span><br>
+						<span><b>Nombre del medico: </b> ${values.doctorName}</span><br>
+						<span><b>Medicina: </b> ${values.medicineName}</span><br>
+						<span><b>Dosis: </b> ${values.dosage}</span><br>
+						<span><b>Frecuencia: </b> ${values.frequency}</span><br>
+						<span><b>Desde: </b> ${values.issuedDate} <b>Hasta: </b> ${values.expiryDate}</span><br>
+						</body></html>`,
+				},
+				headers: {
+					Accept: "application/json",
+					"Content-Type": "application/json",
+					"api-key":
+						"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",
+				},
+			});
 			swappUpSuccess();
-			createPrescription({
+
+			const { dosage, frequency, email, issuedDate, expiryDate, ...rest } =
+				values;
+
+			const receta = {
 				variables: {
-					...values,
-					issuedDate: "tu vieja",
-					expiryDate: "en tanga",
+					...rest,
+					issuedDate,
+					expiryDate,
 
 					used: true,
 				},
-			});
+			};
+			// console.log({ receta });
+			console.log({ ...receta });
+			createPrescription({ ...receta });
 
-			// console.log(response);
+			console.log(response);
 		} catch (err) {
 			swappUpError();
 			console.log(err);
 		}
 	};
-	const startDate = stay.length && format(stay[0].startDate, "dd/MM/yyyy");
-	const endDate = stay.length && format(stay[0].endDate, "dd/MM/yyyy");
 
 	return (
 		<div className='bg-background h-full py-10 '>
@@ -123,13 +137,13 @@ const Form_med = () => {
 				initialValues={{
 					patientName: "",
 					doctorName: "",
-					dose: "",
-					frequency: "",
-					// email: "",
 					medicineName: "",
+					email: "",
+					dosage: "",
+					frequency: "",
 
-					startDate: startDate,
-					endDate: endDate,
+					issuedDate: "12/2/2023",
+					expiryDate: "13/2/2023",
 				}}
 				onSubmit={(values, { resetForm }) => {
 					submitForm({ ...values });
@@ -144,6 +158,7 @@ const Form_med = () => {
 								<h1 className='tracking-wide text-background mt-5 text-3xl font-bold '>
 									Recetario
 								</h1>
+
 								<hr className='border-2 border-white opacity-50 w-full mb-3' />
 								<div className='w-full px-3'>
 									{/* <label
@@ -193,9 +208,9 @@ const Form_med = () => {
 										)}
 									</ErrorMessage>
 								</div>
-								{/* <div className='w-full px-3'>
+								<div className='w-full px-3'>
 									<DateRangeComp setStay={setStay} />
-								</div> */}
+								</div>
 								<div className='w-full px-3'>
 									{/* <label
 								htmlFor='lastName'
@@ -203,8 +218,8 @@ const Form_med = () => {
 								Nombre del doctor
 							</label> */}
 									<Field
-										type='text'
-										name='dose'
+										type='number'
+										name='dosage'
 										placeholder='Dosis *'
 										className={
 											errors.lastName
@@ -212,7 +227,7 @@ const Form_med = () => {
 												: "appearance-none text-sm mt-2 py-2 px-3 w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
 										}
 									/>
-									<ErrorMessage name='dose'>
+									<ErrorMessage name='dosage'>
 										{(msg) => (
 											<div className='text-customRed italic pl-1 text-xs font-semibold'>
 												{msg}
@@ -227,7 +242,7 @@ const Form_med = () => {
 								Nombre del doctor
 							</label> */}
 									<Field
-										type='text'
+										type='number'
 										name='frequency'
 										placeholder='Frecuencia *'
 										className={

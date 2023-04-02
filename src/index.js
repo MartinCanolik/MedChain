@@ -10,11 +10,16 @@ import {
 
 import "./index.css";
 import App from "./App";
+const link = new HttpLink({
+	uri: String(process.env.REACT_APP_GRAPHQL_ENDPOINT),
+	headers: {
+		"Access-Control-Allow-Origin": "*",
+		"Content-Type": "application/json",
+	},
+});
 const client = new ApolloClient({
 	cache: new InMemoryCache(),
-	link: new HttpLink({
-		uri: process.env.REACT_APP_GRAPHQL_ENDPOINT,
-	}),
+	link: link,
 });
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
