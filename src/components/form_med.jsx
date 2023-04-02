@@ -72,7 +72,7 @@ const Form_med = () => {
 	const endDate = stay.length && format(stay[0].endDate, "dd/MM/yyyy");
 
 	return (
-		<div className=''>
+		<div className='bg-background h-full py-20 '>
 			<Formik
 				initialValues={{
 					patientName: "",
@@ -92,8 +92,8 @@ const Form_med = () => {
 				}}
 				validationSchema={validationSchema}>
 				{({ isSubmitting, errors }) => (
-					<Form className='w-1/3 bg-nav my-20 mx-auto justify-center  items-center px-4 flex flex-col gap-5 rounded'>
-						<h1 className='tracking-wide text-white mt-5 text-2xl font-bold '>
+					<Form className='w-1/3 bg-form  mx-auto justify-center  items-center px-4 flex flex-col gap-5 rounded'>
+						<h1 className='tracking-wide text-background mt-5 text-2xl font-bold '>
 							Recetario
 						</h1>
 						<hr className='border-2 border-white opacity-50 w-full mb-3' />
