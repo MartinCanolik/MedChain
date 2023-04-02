@@ -13,9 +13,9 @@ function App() {
 			<MedChain/>
 			<Routes>
 				<Route path='/' element={<Home />} />
-				<Route path='/form' element={<Form_med />} />
+				<Route path='/doctor' element={<Form_med />} />
 				<Route path='/login/:type' element={<Login />} />
-				<Route path='/store' element={<DrugS />} />
+				<Route path='/pharmacy' element={<DrugS />} />
 			</Routes>
 		</>
 	);
