@@ -262,7 +262,7 @@ const Form_med = () => {
 								type='submit'
 								// disabled={isSubmitting}
 								// className='bg-med hover:bg-nav text-white font-bold  py-2 px-4 mb-5 rounded hover:border-green-800'>
-								className="rounded text-l bg-med w-full p-3 py-2 px-4 mb-5 hover:bg-lime-500">
+								className="rounded text-l bg-med w-full text-white font-bold p-3 py-2 px-4 mb-5 hover:bg-lime-500">
 								Enviar
 							</button>
 						</div>
