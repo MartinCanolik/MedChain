@@ -1,0 +1,9 @@
+type Prescription {
+	id: UUID!
+	patientName: String!
+	doctorName: String!
+	issuedDate: String!
+	expiryDate: String!
+	medicineName: String!
+	used: Boolean
+}
