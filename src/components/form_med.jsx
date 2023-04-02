@@ -1,13 +1,49 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import DateRangeComp from "./DateRangeComp";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import format from "date-fns/format";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { validationSchema } from "../schema/schema";
+import { useMutation, gql } from "@apollo/client";
 
 const Form_med = () => {
+	const CREATE_PRESCRIPTION = gql`
+		mutation CreatePrescription(
+			$patientName: String!
+			$doctorName: String!
+			$issuedDate: String!
+			$expiryDate: String!
+			$medicineName: String!
+			$used: Boolean
+		) {
+			createPrescription(
+				prescription: {
+					patientName: $patientName
+					doctorName: $doctorName
+					issuedDate: $issuedDate
+					expiryDate: $expiryDate
+					medicineName: $medicineName
+					used: $used
+				}
+			) {
+				txHash
+				prescription {
+					id
+					patientName
+					doctorName
+					medicineName
+				}
+			}
+		}
+	`;
 	const [stay, setStay] = useState([]);
+	const [createPrescription, { data, loading, error }] =
+		useMutation(CREATE_PRESCRIPTION);
+
+	useEffect(() => {
+		console.log(data);
+	}, [data]);
 
 	//alerts
 	const swappUpSuccess = (name) => {
@@ -29,40 +65,47 @@ const Form_med = () => {
 
 	const submitForm = async (values) => {
 		try {
-			const response = await axios({
-				method: "post",
-				url: "https://api.sendinblue.com/v3/smtp/email",
-				data: {
-					sender: {
-						name: `${values.firstName} ${values.lastName}`,
-						email: "martin.canolik@gmail.com",
-					},
-					to: [
-						{
-							email: "martin.canolik@gmail.com",
-							name: "Martin Canolik",
-						},
-					],
-					subject: "Solicitud De Reserva !",
-					htmlContent: `<html><head></head><body>
-						<h2>Consulta: </h2>
-						<p>${values.query}</p>
-						<span><b>Adultos: </b> ${values.adults}</span><br>
-						<span><b>Niños: </b> ${values.children}</span><br>
-						<span><b>Email: </b> ${values.email}</span><br>
-						<span><b>Telefono: </b> ${values.phone}</span><br>
-						<span><b>Desde: </b> ${values.startDate} <b>Hasta: </b> ${values.endDate}</span><br>
-						</body></html>`,
-				},
-				headers: {
-					Accept: "application/json",
-					"Content-Type": "application/json",
-					"api-key": process.env.REACT_APP_API_KEY,
+			// const response = await axios({
+			// 	method: "post",
+			// 	url: "https://api.sendinblue.com/v3/smtp/email",
+			// 	data: {
+			// 		sender: {
+			// 			name: `${values.firstName} ${values.lastName}`,
+			// 			email: "martin.canolik@gmail.com",
+			// 		},
+			// 		to: [
+			// 			{
+			// 				email: "martin.canolik@gmail.com",
+			// 				name: "Martin Canolik",
+			// 			},
+			// 		],
+			// 		subject: "Solicitud De Reserva !",
+			// 		htmlContent: `<html><head></head><body>
+			// 			<h2>Consulta: </h2>
+			// 			<p>${values.query}</p>
+			// 			<span><b>Adultos: </b> ${values.adults}</span><br>
+			// 			<span><b>Niños: </b> ${values.children}</span><br>
+			// 			<span><b>Email: </b> ${values.email}</span><br>
+			// 			<span><b>Telefono: </b> ${values.phone}</span><br>
+			// 			<span><b>Desde: </b> ${values.startDate} <b>Hasta: </b> ${values.endDate}</span><br>
+			// 			</body></html>`,
+			// 	},
+			// 	headers: {
+			// 		Accept: "application/json",
+			// 		"Content-Type": "application/json",
+			// 		"api-key": process.env.REACT_APP_API_KEY,
+			// 	},
+			// });
+			console.log(values);
+			swappUpSuccess();
+			createPrescription({
+				variables: {
+					...values,
+					used: true,
 				},
 			});
-			swappUpSuccess(values.firstName);
 
-			console.log(response);
+			// console.log(response);
 		} catch (err) {
 			swappUpError();
 			console.log(err);
@@ -79,7 +122,7 @@ const Form_med = () => {
 					doctorName: "",
 					dose: "",
 					frequency: "",
-					email: "",
+					// email: "",
 					medicineName: "",
 
 					startDate: startDate,
@@ -94,7 +137,7 @@ const Form_med = () => {
 				{({ isSubmitting, errors }) => (
 					<Form className='flex flex-col items-center justify-center gap-5 '>
 						<div className='w-1/3 bg-form  mx-auto justify-center  items-center pb-5 px-3 flex flex-col gap-3 rounded'>
-							<h1 className='tracking-wide text-background mt-5 text-2xl font-bold '>
+							<h1 className='tracking-wide text-background mt-5 text-3xl font-bold '>
 								Recetario
 							</h1>
 							<hr className='border-2 border-white opacity-50 w-full mb-3' />
