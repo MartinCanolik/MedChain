@@ -1,6 +1,9 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 
 const Login = () => {
+
+    const {type} = useParams()
 
     return(
         <div className="w-full h-96 flex flex-col justify-center items-center gap-5">
