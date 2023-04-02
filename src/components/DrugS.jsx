@@ -65,17 +65,20 @@ function Home() {
   };
 
   return (
-    <div>
-      <h1>Bienvenido farmacologo</h1>
-      <p>Ingrese el hash de la receta en el siguiente casillero</p>
-      <input
-        type="text"
-        placeholder="Ingrese el hash a buscar"
-        value={hash}
-        onChange={(e) => setHash(e.target.value)}
-      />
-      <button onClick={handleSearch}>Buscar</button>
-      {result && <p>Resultado: {result}</p>}
+    <div className="w-full h-96 flex flex-col justify-center items-center gap-5">
+      <h1 className='text-white'>Bienvenido farmacologo</h1>
+      <p className='text-white'>Ingrese el hash de la receta en el siguiente casillero</p>
+      <div className="flex gap-2">
+        <input
+          type="text"
+          placeholder="Ingrese el hash a buscar"
+          value={hash}
+          onChange={(e) => setHash(e.target.value)}
+          className="rounded p-3 text-xl"
+        />
+        <button onClick={handleSearch} className="rounded bg-button p-3 text-xl hover:bg-lime-500">Buscar</button>
+      </div>
+      {result && <p className='text-chain'>Resultado: {result}</p>}
     </div>
   );
 }
