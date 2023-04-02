@@ -8,4 +8,5 @@ type Prescription {
 	dosage: Int!
 	frequency: Float!
 	used: Boolean
+	
 }

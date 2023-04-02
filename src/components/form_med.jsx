@@ -102,8 +102,7 @@ const Form_med = () => {
 				headers: {
 					Accept: "application/json",
 					"Content-Type": "application/json",
-					"api-key":
-						"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",
+					"api-key": "",
 				},
 			});
 			swappUpSuccess();
