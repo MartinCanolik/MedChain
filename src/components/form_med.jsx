@@ -72,7 +72,7 @@ const Form_med = () => {
 	const endDate = stay.length && format(stay[0].endDate, "dd/MM/yyyy");
 
 	return (
-		<div className='bg-background h-full py-20 '>
+		<div className='bg-background h-full py-10 '>
 			<Formik
 				initialValues={{
 					patientName: "",
@@ -92,163 +92,161 @@ const Form_med = () => {
 				}}
 				validationSchema={validationSchema}>
 				{({ isSubmitting, errors }) => (
-					<Form className='w-1/3 bg-form  mx-auto justify-center  items-center px-4 flex flex-col gap-5 rounded'>
-						<h1 className='tracking-wide text-background mt-5 text-2xl font-bold '>
-							Recetario
-						</h1>
-						<hr className='border-2 border-white opacity-50 w-full mb-3' />
-
-						<div className='w-full px-3'>
-							{/* <label
+					<Form className='flex flex-col items-center justify-center gap-5 '>
+						<div className='w-1/3 bg-form  mx-auto justify-center  items-center pb-5 px-3 flex flex-col gap-3 rounded'>
+							<h1 className='tracking-wide text-background mt-5 text-2xl font-bold '>
+								Recetario
+							</h1>
+							<hr className='border-2 border-white opacity-50 w-full mb-3' />
+							<div className='w-full px-3'>
+								{/* <label
 									htmlFor='patientName'
 									className=' tracking-wide text-sm text-white font-bold mb-2'>
 									Nombre del paciente
 								</label> */}
-							<Field
-								type='text'
-								name='patientName'
-								placeholder='Nombre del paciente*'
-								className={
-									errors.firstName
-										? "appearance-none text-sm mt-2 py-2 px-3 w-full text-sm mt-2 py-2 px-3 bg-red-100 text-gray-700 border border-customRed rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-										: "appearance-none text-sm mt-2 py-2 px-3 w-full text-sm mt-2 py-2 px-3 bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-								}
-							/>
-							<ErrorMessage name='patientName'>
-								{(msg) => (
-									<div className='text-customRed italic pl-1 text-xs font-semibold'>
-										{msg}
-									</div>
-								)}
-							</ErrorMessage>
-						</div>
-						<div className='w-full px-3'>
-							{/* <label
+								<Field
+									type='text'
+									name='patientName'
+									placeholder='Nombre del paciente*'
+									className={
+										errors.firstName
+											? "appearance-none text-sm mt-2 py-2 px-3 w-full text-sm mt-2 py-2 px-3 bg-red-100 text-gray-700 border border-customRed rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+											: "appearance-none text-sm mt-2 py-2 px-3 w-full text-sm mt-2 py-2 px-3 bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+									}
+								/>
+								<ErrorMessage name='patientName'>
+									{(msg) => (
+										<div className='text-customRed italic pl-1 text-xs font-semibold'>
+											{msg}
+										</div>
+									)}
+								</ErrorMessage>
+							</div>
+							<div className='w-full px-3'>
+								{/* <label
 								htmlFor='lastName'
 								className=' tracking-wide text-white text-sm font-bold mb-2'>
 								Nombre del doctor
 							</label> */}
-							<Field
-								type='text'
-								name='doctorName'
-								placeholder='Nombre del doctor *'
-								className={
-									errors.lastName
-										? "appearance-none text-sm mt-2 py-2 px-3 w-full bg-red-100 text-gray-700 border border-customRed rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-										: "appearance-none text-sm mt-2 py-2 px-3 w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-								}
-							/>
-							<ErrorMessage name='doctorName'>
-								{(msg) => (
-									<div className='text-customRed italic pl-1 text-xs font-semibold'>
-										{msg}
-									</div>
-								)}
-							</ErrorMessage>
-						</div>
-						<div className='w-full px-3'>
-							<DateRangeComp setStay={setStay} />
-						</div>
-						<div className='w-full px-3'>
-							{/* <label
+								<Field
+									type='text'
+									name='doctorName'
+									placeholder='Nombre del doctor *'
+									className={
+										errors.lastName
+											? "appearance-none text-sm mt-2 py-2 px-3 w-full bg-red-100 text-gray-700 border border-customRed rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+											: "appearance-none text-sm mt-2 py-2 px-3 w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+									}
+								/>
+								<ErrorMessage name='doctorName'>
+									{(msg) => (
+										<div className='text-customRed italic pl-1 text-xs font-semibold'>
+											{msg}
+										</div>
+									)}
+								</ErrorMessage>
+							</div>
+							<div className='w-full px-3'>
+								<DateRangeComp setStay={setStay} />
+							</div>
+							<div className='w-full px-3'>
+								{/* <label
 								htmlFor='lastName'
 								className=' tracking-wide text-white text-sm font-bold mb-2'>
 								Nombre del doctor
 							</label> */}
-							<Field
-								type='text'
-								name='dose'
-								placeholder='Dosis *'
-								className={
-									errors.lastName
-										? "appearance-none text-sm mt-2 py-2 px-3 w-full bg-red-100 text-gray-700 border border-customRed rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-										: "appearance-none text-sm mt-2 py-2 px-3 w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-								}
-							/>
-							<ErrorMessage name='dose'>
-								{(msg) => (
-									<div className='text-customRed italic pl-1 text-xs font-semibold'>
-										{msg}
-									</div>
-								)}
-							</ErrorMessage>
-						</div>
-
-						<div className='w-full px-3'>
-							{/* <label
+								<Field
+									type='text'
+									name='dose'
+									placeholder='Dosis *'
+									className={
+										errors.lastName
+											? "appearance-none text-sm mt-2 py-2 px-3 w-full bg-red-100 text-gray-700 border border-customRed rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+											: "appearance-none text-sm mt-2 py-2 px-3 w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+									}
+								/>
+								<ErrorMessage name='dose'>
+									{(msg) => (
+										<div className='text-customRed italic pl-1 text-xs font-semibold'>
+											{msg}
+										</div>
+									)}
+								</ErrorMessage>
+							</div>
+							<div className='w-full px-3'>
+								{/* <label
 								htmlFor='lastName'
 								className=' tracking-wide text-white text-sm font-bold mb-2'>
 								Nombre del doctor
 							</label> */}
-							<Field
-								type='text'
-								name='frequency'
-								placeholder='Frecuencia *'
-								className={
-									errors.lastName
-										? "appearance-none text-sm mt-2 py-2 px-3 w-full bg-red-100 text-gray-700 border border-customRed rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-										: "appearance-none text-sm mt-2 py-2 px-3 w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-								}
-							/>
-							<ErrorMessage name='lastName'>
-								{(msg) => (
-									<div className='text-customRed italic pl-1 text-xs font-semibold'>
-										{msg}
-									</div>
-								)}
-							</ErrorMessage>
-						</div>
-						<div className='w-full px-3'>
-							{/* <label
+								<Field
+									type='text'
+									name='frequency'
+									placeholder='Frecuencia *'
+									className={
+										errors.lastName
+											? "appearance-none text-sm mt-2 py-2 px-3 w-full bg-red-100 text-gray-700 border border-customRed rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+											: "appearance-none text-sm mt-2 py-2 px-3 w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+									}
+								/>
+								<ErrorMessage name='lastName'>
+									{(msg) => (
+										<div className='text-customRed italic pl-1 text-xs font-semibold'>
+											{msg}
+										</div>
+									)}
+								</ErrorMessage>
+							</div>
+							<div className='w-full px-3'>
+								{/* <label
 								htmlFor='lastName'
 								className=' tracking-wide text-white text-sm font-bold mb-2'>
 								Nombre del doctor
 							</label> */}
-							<Field
-								type='text'
-								name='email'
-								placeholder='Email del paciente *'
-								className={
-									errors.lastName
-										? "appearance-none text-sm mt-2 py-2 px-3 w-full bg-red-100 text-gray-700 border border-customRed rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-										: "appearance-none text-sm mt-2 py-2 px-3 w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-								}
-							/>
-							<ErrorMessage name='email'>
-								{(msg) => (
-									<div className='text-customRed italic pl-1 text-xs font-semibold'>
-										{msg}
-									</div>
-								)}
-							</ErrorMessage>
-						</div>
-						<div className='w-full px-3'>
-							{/* <label
+								<Field
+									type='text'
+									name='email'
+									placeholder='Email del paciente *'
+									className={
+										errors.lastName
+											? "appearance-none text-sm mt-2 py-2 px-3 w-full bg-red-100 text-gray-700 border border-customRed rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+											: "appearance-none text-sm mt-2 py-2 px-3 w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+									}
+								/>
+								<ErrorMessage name='email'>
+									{(msg) => (
+										<div className='text-customRed italic pl-1 text-xs font-semibold'>
+											{msg}
+										</div>
+									)}
+								</ErrorMessage>
+							</div>
+							<div className='w-full px-3'>
+								{/* <label
 								htmlFor='lastName'
 								className=' tracking-wide text-white text-sm font-bold mb-2'>
 								Nombre del doctor
 							</label> */}
-							<Field
-								type='text'
-								name='medicineName'
-								placeholder='Nombre del medicamento *'
-								className={
-									errors.lastName
-										? "appearance-none text-sm mt-2 py-2 px-3 w-full bg-red-100 text-gray-700 border border-customRed rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-										: "appearance-none text-sm mt-2 py-2 px-3 w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-								}
-							/>
-							<ErrorMessage name='medicineName'>
-								{(msg) => (
-									<div className='text-customRed italic pl-1 text-xs font-semibold'>
-										{msg}
-									</div>
-								)}
-							</ErrorMessage>
-						</div>
-
-						<div className='w-full flex flex-col items-center justify-center '>
-							{/* <div className='w-[80%]  p-3'>
+								<Field
+									type='text'
+									name='medicineName'
+									placeholder='Nombre del medicamento *'
+									className={
+										errors.lastName
+											? "appearance-none text-sm mt-2 py-2 px-3 w-full bg-red-100 text-gray-700 border border-customRed rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+											: "appearance-none text-sm mt-2 py-2 px-3 w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+									}
+								/>
+								<ErrorMessage name='medicineName'>
+									{(msg) => (
+										<div className='text-customRed italic pl-1 text-xs font-semibold'>
+											{msg}
+										</div>
+									)}
+								</ErrorMessage>
+							</div>
+							<div className='w-full flex flex-col items-center justify-center '>
+								{/* <div className='w-[80%]  p-3'>
 								<Field
 									placeholder='Deje su consulta...'
 									className={
