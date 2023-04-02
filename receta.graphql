@@ -6,4 +6,5 @@ type Prescription {
 	expiryDate: String!
 	medicineName: String!
 	used: Boolean
+	
 }

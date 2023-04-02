@@ -15,6 +15,8 @@ const Form_med = () => {
 			$issuedDate: String!
 			$expiryDate: String!
 			$medicineName: String!
+			$dosage: Int!
+			$frequency: Float!
 			$used: Boolean
 		) {
 			createPrescription(
