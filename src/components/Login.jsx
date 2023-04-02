@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import Swal from "sweetalert2";
 import * as Yup from "yup";
-import { Web3Button } from '@web3modal/react'
+// import { Web3Button } from '@web3modal/react'
 
 const Login = () => {
     const { type } = useParams();
