@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { gql, useLazyQuery } from '@apollo/client';
 
-const SEARCH_RECIPE = gql`
+/*const SEARCH_RECIPE = gql`
   query searchRecipe($searchTerm: String!) {
     searchRecipe(searchTerm: $searchTerm) {
       id
@@ -46,66 +46,41 @@ const Search = () => {
   );
 };
 
-export default Search;
+export default Search; */
 
 
+function Home() {
+  const [hash, setHash] = useState("");
+  const [result, setResult] = useState("");
 
+  const handleSearch = async () => {
+    try {
+      const response = await fetch(`/search/${hash}`);
+      const data = await response.json();
+      setResult(data.result);
+    } catch (error) {
+      console.error(error);
+      setResult("Error en la búsqueda");
+    }
+  };
 
-
-
-
-
-
-
-
-
-
-
-/*import React from 'react';
-import Logo from '../img/logoHenry.png'
-import { Link } from 'react-router-dom';
-import React, { Component } from 'react';
-
-
-class Home extends Component {
-	constructor(props) {
-	  super(props);
-	  this.state = {
-		searchQuery: ""
-	  };
-	}
-  
-	handleInputChange = event => {
-	  this.setState({
-		searchQuery: event.target.value
-	  });
-	};
-  
-	render() {
-	  const { searchQuery } = this.state;
-	  return (
-		<div>
-		  <h1>Bienvenido farmacologo</h1>
-		  <p>Introduzca el codigo de la receta</p>
-		  <form>
-			<input
-			  type="text"
-			  placeholder="Buscar..."
-			  value={searchQuery}
-			  onChange={this.handleInputChange}
-			/>
-			<button type="submit">Buscar</button>
-		  </form>
-		</div>
-	  );
-	}
-  }
-
-  export default Home;*/
-/*function Drugs({onSearch}) {
   return (
-    
+    <div>
+      <h1>Bienvenido farmacologo</h1>
+      <p>Ingrese el hash de la receta en el siguiente casillero</p>
+      <input
+        type="text"
+        placeholder="Ingrese el hash a buscar"
+        value={hash}
+        onChange={(e) => setHash(e.target.value)}
+      />
+      <button onClick={handleSearch}>Buscar</button>
+      {result && <p>Resultado: {result}</p>}
+    </div>
   );
-};
+}
 
-export default Drugs;*/
+export default Home;
+
+
+
