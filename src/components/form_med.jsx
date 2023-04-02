@@ -245,7 +245,7 @@ const Form_med = () => {
 									)}
 								</ErrorMessage>
 							</div>
-							<div className='w-full flex flex-col items-center justify-center '>
+							{/* <div className='w-full flex flex-col items-center justify-center '> */}
 								{/* <div className='w-[80%]  p-3'>
 								<Field
 									placeholder='Deje su consulta...'
