@@ -18,7 +18,7 @@ const DateRangeComp = ({ setStay }) => {
 			key: "selection",
 		},
 	]);
-	console.log(range);
+	// console.log(range);
 
 	const calendar = useCallback(() => {
 		setStay(range);
@@ -62,7 +62,7 @@ const DateRangeComp = ({ setStay }) => {
 			setOpen(false);
 		}
 	};
-	console.log(open);
+	// console.log(open);
 
 	return (
 		<div className='relative' ref={refOne}>
