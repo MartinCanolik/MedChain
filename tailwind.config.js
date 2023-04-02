@@ -8,6 +8,7 @@ module.exports = {
 				form: "#D9D9D9",
 				med: "#00A800",
 				chain: "#00A8A8",
+				button: "#f8fafc",
 
 				hr: "#cbd5e1",
 			},
