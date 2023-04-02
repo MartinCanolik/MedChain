@@ -4,15 +4,11 @@ module.exports = {
 	theme: {
 		extend: {
 			colors: {
-				primary: "#14b8a6",
-				logo: "#0091cf",
-				secondary: "#ef4444",
-				primary2: "#06b6d4",
-				white: "#f0fdfa",
-				customRed: "#CE2A3A",
-				brown: "#AD8E70",
-				headerBlack: "#334155",
-				textBlack: "#64748b",
+				background: "#18233C",
+				form: "#D9D9D9",
+				med: "#00A800",
+				chain: "#00A8A8",
+
 				hr: "#cbd5e1",
 			},
 			fontFamily: {
