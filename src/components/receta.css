@@ -1,0 +1,41 @@
+.bg-gray-800 {
+    background-color: #1f2937;
+  }
+  
+  .text-chain {
+    color: #d1d5db;
+  }
+  
+  .bg-button {
+    background-color: #4f46e5;
+  }
+  
+  .hover\:bg-lime-500:hover {
+    background-color: #84cc16;
+  }
+  
+  .btn-search {
+    width: 200px;
+  }
+  
+  .btn-search:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.5);
+  }
+  
+  .btn-search:hover {
+    background-color: #4338ca;
+  }
+  
+  .search-input {
+    width: 400px;
+    padding: 1rem;
+    border-radius: 0.375rem;
+    font-size: 1.5rem;
+    background-color: #e5e7eb;
+    color: #374151;
+  }
+  
+  .result-container {
+    margin-top: 2rem;
+  }
