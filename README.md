@@ -25,13 +25,13 @@ Testing
 
 # Franco Rial
 [![Franco Rial](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/franco-antonio-rial/)
-[![Github](https://img.shields.io/badge/-GitHub-lightgrey)](https://github.com/ignaluna)
+[![Github](https://img.shields.io/badge/-GitHub-lightgrey)](https://github.com/FranARB)
 <!-- [![Email](https://img.shields.io/badge/-E--mail-lightblue)](francoantoniorial@hotmail.com) -->
 
 
 # Ignacio Luna
 [![Ignacio Luna](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ignaluna/)
-[![Github](https://img.shields.io/badge/-GitHub-lightgrey)](https://github.com/FranARB)
+[![Github](https://img.shields.io/badge/-GitHub-lightgrey)](https://github.com/ignaluna)
 
 
 # Mery Wayferer

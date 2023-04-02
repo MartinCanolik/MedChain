@@ -27,14 +27,13 @@ function App() {
 	return (
 		<>
 			{/* <WagmiConfig client={wagmiClient}> */}
-				<MedChain />
-				<Routes>
-					<Route path='/' element={<Home />} />
-					<Route path='/form' element={<Form_med />} />
-					<Route path='/login' element={<Login />} />
-					<Route path='/store' element={<DrugS />} />
+			<MedChain />
+			<Routes>
+				<Route path='/' element={<Home />} />
+				<Route path='/doctor' element={<Form_med />} />
+				<Route path='/login/:type' element={<Login />} />
+				<Route path='/pharmacy' element={<DrugS />} />
 			</Routes>
-
 			{/* </WagmiConfig>
 
 			<Web3Modal projectId={projectId} ethereumClient={ethereumClient} /> */}

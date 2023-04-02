@@ -1,14 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router";
 
 const Home = () => {
-
-	const [userType, setUserType] = useState({ user: "" })
 	const navigate = useNavigate();
 
 	const handleClick = (event) => {
-		setUserType({ user: event.target.value })
-		navigate('/login')
+		const type = event.target.value
+		navigate(`/login/${type}`)
 	}
 
 	return (
