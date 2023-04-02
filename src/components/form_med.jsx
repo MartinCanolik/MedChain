@@ -288,7 +288,7 @@ const Form_med = () => {
 									)}
 								</ErrorMessage>
 							</div>
-							<div className='w-full flex flex-col items-center justify-center '>
+							{/* <div className='w-full flex flex-col items-center justify-center '> */}
 								{/* <div className='w-[80%]  p-3'>
 								<Field
 									placeholder='Deje su consulta...'
@@ -301,14 +301,14 @@ const Form_med = () => {
 									name='query'
 								/>
 							</div> */}
-							</div>
+							<button
+								type='submit'
+								// disabled={isSubmitting}
+								// className='bg-med hover:bg-nav text-white font-bold  py-2 px-4 mb-5 rounded hover:border-green-800'>
+								className="rounded text-l bg-med w-full text-white font-bold p-3 py-2 px-4 mb-5 hover:bg-lime-500">
+								Enviar
+							</button>
 						</div>
-						<button
-							type='submit'
-							// disabled={isSubmitting}
-							className='bg-med w-1/3 hover:bg-nav text-white font-bold mx-auto py-2 px-4 mb-5 rounded border-2 border-transparent focus:outline-none focus:shadow-outline hover:text-green-800 hover:border-green-800  disabled:opacity-5'>
-							Enviar
-						</button>
 					</Form>
 				)}
 			</Formik>
