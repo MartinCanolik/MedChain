@@ -2,7 +2,7 @@
 [MedChain](http://127.0.0.1:8080/graphql) 
 
 ```
-Testing
+Med chain is an app with the aim on created medical prescriptions in blockchain technology developed in the context of the think and dev hackathon.
 
 ```
 
