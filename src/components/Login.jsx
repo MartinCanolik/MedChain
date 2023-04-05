@@ -36,7 +36,7 @@ const Login = () => {
                     .required("Contraseña requerida. *"),
             })}>
             {({ isSubmitting, errors }) => (
-                <Form className='relative w-full mx-auto max-w-2xl bg-customGray p-4 flex flex-col justify-center items-center gap-2 my-8 rounded'>
+                <Form className='relative w-full mx-auto max-w-2xl bg-customGray p-24 flex flex-col justify-center items-center gap-4 my-8 rounded'>
                     {/* <label
                         htmlFor='user'
                         className='block tracking-wide text-white text-left text-s font-bold mb-2 mt-10'>
