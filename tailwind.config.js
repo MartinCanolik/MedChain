@@ -9,6 +9,7 @@ module.exports = {
 				med: "#00A800",
 				chain: "#00A8A8",
 				button: "#f8fafc",
+				footer: "#d9d9d9",
 
 				hr: "#cbd5e1",
 			},
