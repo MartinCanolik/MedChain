@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import Form_med from "./components/form_med";
 import Login from "./components/Login";
 import MedChain from "./components/MedChain";
+import Footer from "./components/Footer";
 // import { EthereumClient, w3mConnectors, w3mProvider } from '@web3modal/ethereum'
 // import { Web3Modal } from '@web3modal/react'
 // import { configureChains, createClient, WagmiConfig } from 'wagmi'
@@ -34,6 +35,7 @@ function App() {
 				<Route path='/login/:type' element={<Login />} />
 				<Route path='/pharmacy' element={<DrugS />} />
 			</Routes>
+			<Footer/>
 			{/* </WagmiConfig>
 
 			<Web3Modal projectId={projectId} ethereumClient={ethereumClient} /> */}

@@ -26,7 +26,7 @@ const Search = () => {
   }, []);
   return (
     <div>
-      {/* <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           value={searchTerm}
@@ -34,7 +34,7 @@ const Search = () => {
         />
         <button type="submit">Search</button>
       </form>
-      <button onClick={() => getPrescriptions()}>Get Prescriptions</button> */}
+      <button onClick={() => getPrescriptions()}>Get Prescriptions</button>
 
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error.message}</p>}
