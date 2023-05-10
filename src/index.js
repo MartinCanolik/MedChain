@@ -10,19 +10,7 @@ import {
 
 import "./index.css";
 import App from "./App";
-<<<<<<< HEAD
-const link = new HttpLink({
-	uri: String(process.env.REACT_APP_GRAPHQL_ENDPOINT),
-	headers: {
-		"Access-Control-Allow-Origin": "*",
-		"Content-Type": "application/json",
-	},
-});
-const client = new ApolloClient({
-	cache: new InMemoryCache(),
-	link: link,
-});
-=======
+
 
 const link = new HttpLink({
 	uri: String(process.env.REACT_APP_GRAPHQL_ENDPOINT),
