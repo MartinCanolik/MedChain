@@ -10,7 +10,7 @@ const Home = () => {
 	}
 
 	return (
-		<div className="w-full h-96 flex flex-col justify-center items-center gap-5">
+		<div className="w-full h-96 p-20 flex flex-col justify-center items-center gap-5">
 			<button onClick={handleClick} value="doctor" className="rounded text-3xl bg-button w-96 p-5 hover:bg-lime-500">Soy Médico</button>
 			<button onClick={handleClick} value="pharmacy" className="rounded text-3xl bg-button w-96 p-5 hover:bg-lime-500">Soy Farmacia</button>
 		</div>
