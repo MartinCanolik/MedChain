@@ -11,33 +11,20 @@ import {
 import "./index.css";
 import App from "./App";
 
+
 const link = new HttpLink({
 	uri: String(process.env.REACT_APP_GRAPHQL_ENDPOINT),
 	headers: {
-		"Access-Control-Allow-Origin": "*",
-		"Content-Type": "application/json",
-	},
-});
-const client = new ApolloClient({
-	cache: new InMemoryCache(),
+	  "Access-Control-Allow-Origin": "*",
+	  "Content-Type": "application/json"
+	}
+  });
+  const client = new ApolloClient({
 	link: link,
-});
-
-
-// const link = new HttpLink({
-// 	uri: String(process.env.REACT_APP_GRAPHQL_ENDPOINT),
-// 	headers: {
-// 	  "Access-Control-Allow-Origin": "*",
-// 	  "Content-Type": "application/json"
-// 	}
-//   });
-//   const client = new ApolloClient({
-// 	link: link,
-// 	cache: new InMemoryCache({
-// 	  addTypename: false,
-// 	}),
-//   });
-
+	cache: new InMemoryCache({
+	  addTypename: false,
+	}),
+  });
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<ApolloProvider client={client}>
