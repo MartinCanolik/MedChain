@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { gql, useQuery } from '@apollo/client';
+import Card from './Card';
 
 const GET_PRESCRIPTIONS = gql`
 query GetPrescriptions{
@@ -49,12 +50,9 @@ const Search = () => {
         <ul>
           {
             data.allPrescriptions.map((recipe) => {
-              console.log(recipe)
               return (
-                <li key={recipe.id}>
-                  <h2>{recipe.doctorName}</h2>
-                  <p>{recipe.medicineName}</p>
-                </li>)
+                <Card recipe={recipe}></Card>
+                )
             }
             )}
         </ul>
