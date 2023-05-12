@@ -38,7 +38,7 @@ function App() {
 				<Route path='/pharmacy' element={<DrugS />} />
 				<Route path='/recipe' element={<Details />}/>
 			</Routes>
-			<Footer/>
+			{/* <Footer/> */}
 			{/* </WagmiConfig>
 
 			<Web3Modal projectId={projectId} ethereumClient={ethereumClient} /> */}
