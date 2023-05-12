@@ -1,7 +1,10 @@
+import Card from './Card';
+import { gql, useQuery } from '@apollo/client';
 import React, { useEffect, useState } from 'react';
 import { gql, useQuery } from '@apollo/client';
 import Card from './Card';
 import { Link } from 'react-router-dom';
+
 
 
 const GET_PRESCRIPTIONS = gql`
@@ -47,7 +50,7 @@ const Search = () => {
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error.message}</p>}
       {data && (
-        <ul>
+        <div>
           {
             data.allPrescriptions.map((recipe) => {
               return (
@@ -57,7 +60,7 @@ const Search = () => {
                 )
             }
             )}
-        </ul>
+        </div>
       )}
     </div>
   );

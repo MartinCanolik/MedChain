@@ -1,16 +1,49 @@
+.card{
+    display: list-item;
+    justify-content: space-between;
+    text-align: center;
+    margin-bottom: 0.7%;
+    margin-left: 0.7%;
+    margin-right: 0.7%;
+    margin-top: 0.7%;
+
+    background-color: rgba(77, 75, 75, 0.438);
+    box-shadow: 0px 0px 30px 2px #000;
+    padding: 0%;
+    border-radius: 30px;
+}
+
+.card:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: all 0.5s;
+}
+
+.cd{
+    padding: 0px;
+    width: 5cm;
+    height: 5.5cm;
+    
+
+     /* white-space: nowrap; 
+     overflow: hidden; 
+     text-overflow: ellipsis; 
+     Word-wrap: break-Word; border-width: 10cm;   */
+}
+
 .carding{
-    margin-top: 3%;
-    margin-left: 4.5%;
-    margin-right: 2%;
-    border-radius: 20px;
-    width: auto;
-    height: auto;
+    margin-top: 1.5%;
+    margin-left: 2.5%;
+    margin-right: 1%;
+    border-radius: 50px;
+    width: 2.5cm;
+    height: 2.5cm;
 }
 
 .types{
-    display: flex;
+    display: inline-flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: flex-end;
     
     font-size: small;
     font-weight: lighter;
@@ -21,14 +54,17 @@
     
     padding: 0.5px;
     border-radius: 10px;
-    margin: 3% 20% 2% 20%;
+    margin: 3% 10% 2% 20%;
     
 }
 
 .ti{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
+
+    width: max-content;
+    height: max-content;
 
     font-size: larger;
     text-align: center;
@@ -40,10 +76,10 @@
     background-color: rgba(245, 245, 245, 0.150);
     
     border-radius: 20px;
-    margin: 2.5% 10% 2% 10%;
+    margin: 0.5% 5% 0.5% 5%;
 
     white-space: nowrap; 
      overflow: hidden; 
      /* text-overflow: ellipsis;  */
-     Word-wrap: break-Word; border-width: 10cm;  
+     Word-wrap: break-Word; border-width: 2.5px; 
 }
