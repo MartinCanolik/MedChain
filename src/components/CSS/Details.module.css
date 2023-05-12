@@ -1,5 +1,5 @@
 .dt{
-    background-image: url('../../pictures/VSCIbackground.jpg');
+    /* background-image: url('../../pictures/VSCIbackground.jpg'); */
     background-size: cover;
     /* background-repeat: no-repeat; */
     background-repeat: repeat;
@@ -88,7 +88,7 @@
     align-items: flex-start;
   }
 .back{
-  background-image: url('../../pictures/LoadingFoodGif.gif');
+  /* background-image: url('../../pictures/LoadingFoodGif.gif'); */
   background-attachment:fixed;
   background-size: cover;
   background-repeat: repeat;
