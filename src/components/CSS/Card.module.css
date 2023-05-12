@@ -1,0 +1,49 @@
+.carding{
+    margin-top: 3%;
+    margin-left: 4.5%;
+    margin-right: 2%;
+    border-radius: 20px;
+    width: auto;
+    height: auto;
+}
+
+.types{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+    font-size: small;
+    font-weight: lighter;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
+    color: rgba(143, 248, 243, 0.938);
+    background-color: rgba(245, 245, 245, 0.075);
+    
+    padding: 0.5px;
+    border-radius: 10px;
+    margin: 3% 20% 2% 20%;
+    
+}
+
+.ti{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    font-size: larger;
+    text-align: center;
+    font-weight: bolder;
+    font-style: oblique;
+    font-family: 'Times New Roman', Times, serif;
+    
+    color: rgb(2, 0, 112);
+    background-color: rgba(245, 245, 245, 0.150);
+    
+    border-radius: 20px;
+    margin: 2.5% 10% 2% 10%;
+
+    white-space: nowrap; 
+     overflow: hidden; 
+     /* text-overflow: ellipsis;  */
+     Word-wrap: break-Word; border-width: 10cm;  
+}
