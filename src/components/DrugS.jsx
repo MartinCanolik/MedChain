@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { gql, useQuery } from '@apollo/client';
 import Card from './Card';
+import { Link } from 'react-router-dom';
+
 
 const GET_PRESCRIPTIONS = gql`
 query GetPrescriptions{
@@ -23,8 +25,6 @@ const Search = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const { loading, error, data } = useQuery(GET_PRESCRIPTIONS);
 
-  useEffect(() => {
-  }, []);
   return (
     <div>
 
@@ -51,7 +51,9 @@ const Search = () => {
           {
             data.allPrescriptions.map((recipe) => {
               return (
-                <Card recipe={recipe}></Card>
+                <Link to={'/recipe/' + recipe.id} id={recipe.id}>
+                <Card recipe={recipe}/>
+                </Link>
                 )
             }
             )}
