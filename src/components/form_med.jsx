@@ -49,7 +49,7 @@ const Form_med = () => {
 		expiryDate: "",
 		medicineName: "",
 		dosage: 0,
-		frequency: 0.0,
+		frequency: 1.2,
 		used: false,
 	});
 
