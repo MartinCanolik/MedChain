@@ -4,11 +4,13 @@ module.exports = {
 	theme: {
 		extend: {
 			colors: {
-				background: "#18233C",
+				backgroundStart: "#1D2A47",
+				backgroundEnd: "071125",
+				navBar: "#071125",
 				form: "#D9D9D9",
-				med: "#00A800",
+				med: "#65A800",
 				chain: "#00A8A8",
-				button: "#f8fafc",
+				button: "#65A800",
 				footer: "#d9d9d9",
 
 				hr: "#cbd5e1",

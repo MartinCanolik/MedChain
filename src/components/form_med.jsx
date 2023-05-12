@@ -70,74 +70,80 @@ const Form_med = () => {
 		}));
 	};
 	return (
-		<div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh"}}>
-			<form style={{ backgroundColor: "white", padding: "20px", borderRadius: "10px" }}>
-				<input
-					type="text"
-					name="patientName"
-					value={prescription.patientName}
-					onChange={handleChange}
-					placeholder="Nombre del paciente"
-					style={{ marginBottom: "10px" }}
-				/>
-				<br />
-				<input
-					type="text"
-					name="doctorName"
-					value={prescription.doctorName}
-					onChange={handleChange}
-					placeholder="Nombre del médico"
-					style={{ marginBottom: "10px" }}
-				/>
-				<br />
-				<input
-					type="text"
-					name="issuedDate"
-					value={prescription.issuedDate}
-					onChange={handleChange}
-					placeholder="Fecha de emisión"
-					style={{ marginBottom: "10px" }}
-				/>
-				<br />
-				<input
-					type="text"
-					name="expiryDate"
-					value={prescription.expiryDate}
-					onChange={handleChange}
-					placeholder="Fecha de vencimiento"
-					style={{ marginBottom: "10px" }}
-				/>
-				<br />
-				<input
-					type="text"
-					name="medicineName"
-					value={prescription.medicineName}
-					onChange={handleChange}
-					placeholder="Nombre del medicamento"
-					style={{ marginBottom: "10px" }}
-				/>
-				<br />
-				<input
-					type="number"
-					name="dosage"
-					value={prescription.dosage}
-					onChange={handleChange}
-					placeholder="Dosis"
-					style={{ marginBottom: "10px" }}
-				/>
-				<br />
-				<input
-					type="number"
-					name="frequency"
-					value={prescription.frequency}
-					onChange={handleChange}
-					placeholder="Frecuencia"
-					style={{ marginBottom: "10px" }}
-				/>
-				<br />
-				<button onClick={handleSubmit} style={{ backgroundColor: "rgba(0, 168, 0, 1)", color: "white", padding: "10px", borderRadius: "5px", border: "none" }}>
-					Enviar
-				</button>
+		<div className='bg-background h-full py-10'>
+			<form className='flex flex-col items-center justify-center gap-4'>
+				<div className='w-1/3 bg-form  mx-auto justify-center  items-center pb-5 px-10 flex flex-col rounded'>
+					<h1 className='tracking-wide text-background mt-5 text-3xl font-bold py-5'>
+						Recetario
+					</h1>
+					<hr className='border-2 border-white opacity-50 w-full mb-3' />
+					<input
+						type="text"
+						name="patientName"
+						value={prescription.patientName}
+						onChange={handleChange}
+						placeholder="Nombre del paciente"
+						className= "appearance-none text-sm mt-2 py-2 px-3 w-full text-sm mt-2 py-2 px-3 bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+					/>
+					<br />
+					<input
+						type="text"
+						name="doctorName"
+						value={prescription.doctorName}
+						onChange={handleChange}
+						placeholder="Nombre del médico"
+						className= "appearance-none text-sm mt-2 py-2 px-3 w-full text-sm mt-2 py-2 px-3 bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+					/>
+					<br />
+					<input
+						type="text"
+						name="issuedDate"
+						value={prescription.issuedDate}
+						onChange={handleChange}
+						placeholder="Fecha de emisión"
+						className= "appearance-none text-sm mt-2 py-2 px-3 w-full text-sm mt-2 py-2 px-3 bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+					/>
+					<br />
+					<input
+						type="text"
+						name="expiryDate"
+						value={prescription.expiryDate}
+						onChange={handleChange}
+						placeholder="Fecha de vencimiento"
+						className= "appearance-none text-sm mt-2 py-2 px-3 w-full text-sm mt-2 py-2 px-3 bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+					/>
+					<br />
+					<input
+						type="text"
+						name="medicineName"
+						value={prescription.medicineName}
+						onChange={handleChange}
+						placeholder="Nombre del medicamento"
+						className= "appearance-none text-sm mt-2 py-2 px-3 w-full text-sm mt-2 py-2 px-3 bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+					/>
+					<br />
+					<input
+						type="number"
+						name="dosage"
+						value={prescription.dosage}
+						onChange={handleChange}
+						placeholder="Dosis"
+						className= "appearance-none text-sm mt-2 py-2 px-3 w-full text-sm mt-2 py-2 px-3 bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+					/>
+					<br />
+					<input
+						type="number"
+						name="frequency"
+						value={prescription.frequency}
+						onChange={handleChange}
+						placeholder="Frecuencia"
+						className= "appearance-none text-sm mt-2 py-2 px-3 w-full text-sm mt-2 py-2 px-3 bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+					/>
+					<br />
+					<button onClick={handleSubmit} className='rounded-md text-l w-40 text-white font-semibold p-3 py-2 px-4 mb-5 mx-auto bg-button hover:scale-105'>
+						Enviar
+					</button>
+				</div>
 			</form>
 		</div>
 	);
