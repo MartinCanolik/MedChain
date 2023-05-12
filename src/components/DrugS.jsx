@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { gql, useQuery } from '@apollo/client';
 import Card from './Card';
+import { gql, useQuery } from '@apollo/client';
+import React, { useEffect, useState } from 'react';
+
 
 const GET_PRESCRIPTIONS = gql`
 query GetPrescriptions{

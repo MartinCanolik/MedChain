@@ -25,7 +25,7 @@ export default function Card({ image, recipe}) {
   return (
         <li key={recipe.id} className={style.card}>
           <div className={style.cd}>
-            <img className={style.carding} src={image ? image : img} alt="img not found" width='200px' height='250px' />
+            <img className={style.carding} src={image ? image : img} alt="img not found" width='15px' height='15px' />
             <h3 className={style.ti}> Dr.{recipe.doctorName} </h3>
             <p>{recipe.medicineName}</p>
             <h4 className={style.types}>VTO de receta: {recipe.expiryDate}</h4>
