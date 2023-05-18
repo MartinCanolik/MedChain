@@ -30,7 +30,7 @@ const Search = () => {
 
 
       {/* <form onSubmit={handleSubmit}> */}
-      <form>
+      {/* <form>
         <input
           type="text"
           value={searchTerm}
@@ -41,7 +41,7 @@ const Search = () => {
 
       <button 
       // onClick={() => getPrescriptions()}
-      >Get Prescriptions</button>
+      >Get Prescriptions</button> */}
 
 
       {loading && <p>Loading...</p>}
@@ -51,10 +51,8 @@ const Search = () => {
           {
             data.allPrescriptions.map((recipe) => {
               return (
-                <Link to={'/recipe/' + recipe.id} id={recipe.id}>
-                <Card recipe={recipe}/>
-                </Link>
-                )
+                  <Card recipe={recipe} />
+              )
             }
             )}
         </ul>
